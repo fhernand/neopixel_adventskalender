@@ -33,7 +33,7 @@ class Main {
         var now = Date.now();
 
         for (var i = 0; i < this.config.leds; i++){
-          this.ledGroups.push([{i:new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"})}]);
+          this.ledGroups.push(new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
           console.log(this.ledGroups[i]);
         }
 
@@ -42,9 +42,14 @@ class Main {
     loop() {
         var pixels = new Uint32Array(this.config.leds);
 
-
-        // Set a specific pixel
-        pixels[this.offset] = this.ledGroups[this.offset].getLedColor(this.offset);
+        this.ledGroups.forEach(ledGroup => {
+          var ledColor = ledGroup.getLedColor(this.offset);
+          if (ledColor != undefined){
+            pixels[this.offset] = ledColor;
+            ledColor = undefined;
+            break;
+          }
+        });
 
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
@@ -107,7 +112,7 @@ class ledGroup {
           return colors.after;
       }
     }else{
-      return '0x000000';
+      return undefined;
     }
   }
 
