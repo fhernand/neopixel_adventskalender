@@ -41,13 +41,13 @@ class Main {
     loop() {
         var pixels = new Uint32Array(this.config.leds);
 
-        this.ledGroups.every(ledGroup => {
-          console.log(ledGroup.leds);
-          var ledColor = ledGroup.getLedColor(this.offset);
-          if (ledColor != undefined){
-            pixels[this.offset] = ledColor;
-            ledColor = undefined;
-            return;
+        var ledColor = undefined;
+        this.ledGroups.forEach(ledGroup => {
+          if (ledColor == undefined){
+            ledColor = ledGroup.getLedColor(this.offset);
+            if (ledColor != undefined){
+              pixels[this.offset] = ledColor;
+            }
           }
         });
 
