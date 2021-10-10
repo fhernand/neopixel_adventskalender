@@ -43,7 +43,7 @@ class Main {
 
 
         // Set a specific pixel
-        pixels[this.offset] = ledGroups[this.offset].getLedColor(this.offset);
+        pixels[this.offset] = this.ledGroups[this.offset].getLedColor(this.offset);
 
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
