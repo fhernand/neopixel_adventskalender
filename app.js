@@ -30,7 +30,7 @@ class Main {
         ws281x.configure(this.config);
 
         this.ledGroups = [];
-        var now = Date.now();
+        var now = new Date;
 
         for (var i = 0; i < this.config.leds; i++){
           this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
