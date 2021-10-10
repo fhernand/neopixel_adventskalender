@@ -81,30 +81,32 @@ class ledGroup {
 
   getState(){
     var nowDate = new Date();
-    switch(this.validityType) {
-      case 'date':
-        var now = nowDate.getDate();
-        var validity = this.validity.getDate();
-        break;
-      case 'hours':
-        var now = nowDate.getHours();
-        validity = this.validity.getHours();
-        break;
-      case 'minutes':
-        var now = nowDate.getMinutes();
-        validity = this.validity.getMinutes();
-        break;
-      case 'seconds':
-        var now = nowDate.getSeconds();
-        validity = this.validity.getSeconds();
-        break;
-    }
+    if(nowDate <= this.validity){
+      switch(this.validityType) {
+        case 'date':
+          var now = nowDate.getDate();
+          var validity = this.validity.getDate();
+          break;
+        case 'hours':
+          var now = nowDate.getHours();
+          validity = this.validity.getHours();
+          break;
+        case 'minutes':
+          var now = nowDate.getMinutes();
+          validity = this.validity.getMinutes();
+          break;
+        case 'seconds':
+          var now = nowDate.getSeconds();
+          validity = this.validity.getSeconds();
+          break;
+      }
 
-    if(now == validity){
-      return 'on';
-    } else if(nowDate < this.validity) {
-      return 'before';
-    } else if(nowDate > this.validity) {
+      if(now == validity){
+        return 'on';
+      } else if(nowDate < this.validity) {
+        return 'before';
+      }
+    }else{
       return 'after';
     }
   }
