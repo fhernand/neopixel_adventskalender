@@ -66,10 +66,10 @@ class Main {
 };
 
 class ledGroup {
-  constructor(ledArray, validity, validityType, colors){
+  constructor(ledArray, Date validity, validityType, colors){
     this.leds = ledArray;
     this.validityType = validityType;
-    this.validity = validity;
+    Date this.validity = validity;
     this.colorOn = colors.on;
     this.colorBefore = colors.before;
     this.colorAfter = colors.after;
