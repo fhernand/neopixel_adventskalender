@@ -87,9 +87,9 @@ class ledGroup {
 
     if(now == this.validity){
       return 'on';
-    } elseif(now < this.validity) {
+    } else if(now < this.validity) {
       return 'before';
-    } elseif(now > this.validity) {
+    } else if(now > this.validity) {
       return 'after';
     }
   }
