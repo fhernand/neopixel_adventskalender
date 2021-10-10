@@ -101,14 +101,14 @@ class ledGroup {
 
   getLedColor(led){
     if (this.leds.find(element => element == led)!=undefined){
-      var state = getState();
+      var state = this.getState();
       switch(state){
         case 'on':
-          return colors.on;
+          return this.colorOn;
         case 'before':
-          return colors.before;
+          return this.colorBefore;
         case 'after':
-          return colors.after;
+          return this.colorAfter;
       }
     }else{
       return undefined;
