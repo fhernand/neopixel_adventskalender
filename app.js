@@ -50,6 +50,8 @@ class Main {
           }
         });
 
+        console.log(pixels[this.offset]);
+        
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
 
@@ -58,8 +60,8 @@ class Main {
     }
 
     run() {
-        // Loop every 1 ms
-        setInterval(this.loop.bind(this), 1);
+        // Loop every n ms
+        setInterval(this.loop.bind(this), 100);
     }
 
 };
@@ -90,6 +92,9 @@ class ledGroup {
         var now = nowDate.getSeconds();
         break;
     }
+
+    console.log(nowDate);
+    console.log(now);
 
     if(now == this.validity){
       return 'on';
