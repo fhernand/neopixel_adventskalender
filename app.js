@@ -33,7 +33,7 @@ class Main {
         var now = Date.now();
 
         for (var i = 0; i < this.config.leds; i++){
-          this.ledGroups.push(new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
+          this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
         }
 
     }
@@ -80,26 +80,30 @@ class ledGroup {
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
+        var validity = this.validity.getDate();
         break;
       case 'hours':
         var now = nowDate.getHours();
+        validity = this.validity.getHours();
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
+        validity = this.validity.getMinutes();
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
+        validity = this.validity.getSeconds();
         break;
     }
 
     console.log(now);
-    console.log(this.validity);
+    console.log(validity);
 
-    if(now == this.validity){
+    if(now == validity){
       return 'on';
-    } else if(now < this.validity) {
+    } else if(now < validity) {
       return 'before';
-    } else if(now > this.validity) {
+    } else if(nowDate > validity) {
       return 'after';
     }
   }
