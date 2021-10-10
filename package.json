@@ -1,0 +1,19 @@
+{
+  "name": "neopixel_adventskalender",
+  "version": "1.0.0",
+  "description": "A neopixel adventskalender",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhernand/neopixel_adventskalender.git"
+  },
+  "author": "Felipe Hernandez Plazas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fhernand/neopixel_adventskalender/issues"
+  },
+  "homepage": "https://github.com/fhernand/neopixel_adventskalender#readme"
+}
