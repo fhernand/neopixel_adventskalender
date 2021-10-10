@@ -33,7 +33,8 @@ class Main {
         var now = Date.now();
 
         for (var i = 0; i < this.config.leds; i++){
-          this.ledGroups.push([i,new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"})]);
+          this.ledGroups.push([{i:new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"})}]);
+          console.log(this.ledGroups[i]);
         }
 
     }
