@@ -36,7 +36,7 @@ class Main {
 
         for (var i = 0; i < this.config.leds; i++){
           var latest = this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
-          this.pixels[i] = this.ledGroups[latest].getLedColor(this.offset);
+          this.pixels[i] = this.ledGroups[latest-1].getLedColor(i);
         }
         ws281x.render(this.pixels);
 
@@ -99,9 +99,6 @@ class ledGroup {
         validity = this.validity.getSeconds();
         break;
     }
-
-    console.log(now);
-    console.log(validity);
 
     if(now == validity){
       return 'on';
