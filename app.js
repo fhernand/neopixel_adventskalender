@@ -64,7 +64,7 @@ class Main {
 
     run() {
         // Loop every n ms
-        setInterval(this.loop.bind(this), 100);
+        setInterval(this.loop.bind(this), 1);
     }
 
 };
@@ -102,9 +102,9 @@ class ledGroup {
 
     if(now == validity){
       return 'on';
-    } else if(now < validity) {
+    } else if(nowDate < this.validity) {
       return 'before';
-    } else if(nowDate > validity) {
+    } else if(nowDate > this.validity) {
       return 'after';
     }
   }
