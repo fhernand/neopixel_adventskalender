@@ -1,6 +1,6 @@
 {
   "name": "neopixel_adventskalender",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A neopixel adventskalender",
   "main": "app.js",
   "scripts": {
