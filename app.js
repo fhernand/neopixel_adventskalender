@@ -42,6 +42,7 @@ class Main {
         var pixels = new Uint32Array(this.config.leds);
 
         this.ledGroups.every(ledGroup => {
+          console.log(ledGroup.leds);
           var ledColor = ledGroup.getLedColor(this.offset);
           if (ledColor != undefined){
             pixels[this.offset] = ledColor;
@@ -50,8 +51,6 @@ class Main {
           }
         });
 
-        console.log(pixels[this.offset]);
-        
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
 
@@ -93,8 +92,8 @@ class ledGroup {
         break;
     }
 
-    console.log(nowDate);
     console.log(now);
+    console.log(this.validity);
 
     if(now == this.validity){
       return 'on';
