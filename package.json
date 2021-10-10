@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "rpi-ws281x": "^1.0.36"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fhernand/neopixel_adventskalender.git"
