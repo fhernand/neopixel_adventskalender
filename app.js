@@ -29,24 +29,28 @@ class Main {
         // Configure ws281x
         ws281x.configure(this.config);
 
+        this.pixels = new Uint32Array(this.config.leds);
+
         this.ledGroups = [];
         var now = new Date;
 
         for (var i = 0; i < this.config.leds; i++){
-          this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
+          var latest = this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
+          this.pixels[i] = this.ledGroups[latest].getLedColor(this.offset);
         }
+        ws281x.render(this.pixels);
 
     }
 
     loop() {
-        var pixels = new Uint32Array(this.config.leds);
+
 
         var ledColor = undefined;
         this.ledGroups.forEach(ledGroup => {
           if (ledColor == undefined){
             ledColor = ledGroup.getLedColor(this.offset);
             if (ledColor != undefined){
-              pixels[this.offset] = ledColor;
+              this.pixels[this.offset] = ledColor;
             }
           }
         });
@@ -55,7 +59,7 @@ class Main {
         this.offset = (this.offset + 1) % this.config.leds;
 
         // Render to strip
-        ws281x.render(pixels);
+        ws281x.render(this.pixels);
     }
 
     run() {
