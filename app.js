@@ -75,18 +75,19 @@ class ledGroup {
   }
 
   getState(){
+    var nowDate = Date.now();
     switch(this.validityType) {
       case 'date':
-        var now = Date.now().getDate();
+        var now = nowDate.getDate();
         break;
       case 'hours':
-        var now = Date.now().getHours();
+        var now = nowDate.getHours();
         break;
       case 'minutes':
-        var now = Date.now().getMinutes();
+        var now = nowDate.getMinutes();
         break;
       case 'seconds':
-        var now = Date.now().getSeconds();
+        var now = nowDate.getSeconds();
         break;
     }
 
