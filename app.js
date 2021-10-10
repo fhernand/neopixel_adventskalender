@@ -3,6 +3,9 @@ var ws281x = require('rpi-ws281x');
 class Main {
 
     constructor() {
+        // Current pixel position
+        this.offset = 0;
+
         this.config = {};
 
         // Number of leds in my strip
@@ -25,25 +28,90 @@ class Main {
 
         // Configure ws281x
         ws281x.configure(this.config);
+
+        this.ledGroups = [];
+        var now = Date.now();
+
+        for (var i = 0; i < this.config.leds; i++){
+          ledGroups = ledGroups.push([i,new ledGroup([i],now + (i*1000), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"})]);
+        }
+
     }
 
-    run() {
-        // Create a pixel array matching the number of leds.
-        // This must be an instance of Uint32Array.
+    loop() {
         var pixels = new Uint32Array(this.config.leds);
 
-        // Create a fill color with red/green/blue.
-        var red = 255, green = 0, blue = 255;
-        var color = (red << 16) | (green << 8)| blue;
 
-        for (var i = 0; i < this.config.leds; i++)
-            pixels[i] = color;
+        // Set a specific pixel
+        pixels[this.offset] = ledGroups[this.offset].getLedColor(this.offset);
+
+        // Move on to next
+        this.offset = (this.offset + 1) % this.config.leds;
 
         // Render to strip
         ws281x.render(pixels);
     }
 
+    run() {
+        // Loop every 1 ms
+        setInterval(this.loop.bind(this), 1);
+    }
+
 };
+
+class ledGroup {
+  constructor(ledArray, validity, validityType, colors){
+    this.leds = ledArray;
+    this.validityType = validityType;
+    this.validity = validity;
+    this.colorOn = colors.on;
+    this.colorBefore = colors.before;
+    this.colorAfter = colors.after;
+  }
+
+  getState(){
+    switch(this.validityType) {
+      case 'date':
+        var now = Date.now().getDate();
+        break;
+      case 'hours':
+        var now = Date.now().getHours();
+        break;
+      case 'minutes':
+        var now = Date.now().getMinutes();
+        break;
+      case 'seconds':
+        var now = Date.now().getSeconds();
+        break;
+    }
+
+    if(now == this.validity){
+      return 'on';
+    } elseif(now < this.validity) {
+      return 'before';
+    } elseif(now > this.validity) {
+      return 'after';
+    }
+  }
+
+  getLedColor(led){
+    if (this.leds.find(element => element == led)!=undefined){
+      var state = getState();
+      switch(state){
+        case 'on':
+          return colors.on;
+        case 'before':
+          return colors.before;
+        case 'after':
+          return colors.after;
+      }
+    }else{
+      return '0x000000';
+    }
+  }
+
+
+}
 
 var main = new Main();
 main.run();
