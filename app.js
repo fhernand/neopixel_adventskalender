@@ -75,7 +75,7 @@ class ledGroup {
   }
 
   getState(){
-    var nowDate = Date.now();
+    var nowDate = new Date.now();
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
