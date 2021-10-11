@@ -92,7 +92,7 @@ class ledGroup {
   }
 
   getState(index){
-    if (this.state == 'after' || this.validityType = 'timeless')
+    if (this.state == 'after' || this.validityType == 'timeless')
       return this.state;
 
     var nowDate = new Date();
