@@ -93,7 +93,7 @@ class ledGroup {
   }
 
   getState(index){
-    if (this.state == 'after' || this.validityType == 'timeless')
+    if (this.state == 'after')
       return this.state;
 
     var nowDate = new Date();
@@ -128,9 +128,12 @@ class ledGroup {
   }
 
   getLedColor(led){
+    if (this.validityType == 'timeless')
+      return this.colorOn;
+
     var index = this.leds.findIndex(element => element == led);
     var result = undefined;
-    if (index!=undefined || this.validityType == 'timeless'){
+    if (index!=undefined){
       var state = this.getState(index);
       switch(state){
         case 'on':
