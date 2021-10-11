@@ -34,8 +34,9 @@ class Main {
         var now = new Date;
 
         this.ledGroups = [
-          new ledGroup([0,3,4,7,8,11,12,15,16,19,20,23,24,27,28,31,32,35,36,39,40,43,44,47,48],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": "0xBEFF33", "before": "0x5A0AAB", "after":"0xE85D13"}),
-          new ledGroup([1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49],0, 'timeless', {"on": "0xBEFF33"})
+          new ledGroup([0,3,4,7,8,11,12,15,16,19,20,23,24,27,28,31,32,35,36,39,40,43,44,47,48],now, 'seconds', {"on": "0xBEFF33", "before": "0x5A0AAB", "after":"0xE85D13"}),
+          new ledGroup([4,11,18],now, 'seconds', {"on": "0x10FF33", "before": "0x100AAB", "after":"0x105D13"}),
+          new ledGroup([1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49],0, 'timeless', {"on": "0xFFFFFF"})
         ];
 
         this.ledGroups.forEach (ledGroup => {
@@ -76,43 +77,47 @@ class Main {
 };
 
 class ledGroup {
-  constructor(ledArray, validity, validityType, colors){
+  constructor(ledArray, startTime, validityType, colors){
+    this.startTime = new Date(startTime);
     this.leds = ledArray;
     this.validityType = validityType;
-    this.validity = new Date(validity);
     this.colorOn = colors.on;
     this.colorBefore = colors.before;
     this.colorAfter = colors.after;
-    this.state = 'before'
+    if (this.validityType == 'timeless'){
+      this.state = 'on';
+    } else {
+      this.state = 'before';
+    }
   }
 
-  getState(){
-    if (this.state == 'after')
+  getState(index){
+    if (this.state == 'after' || this.validityType = 'timeless')
       return this.state;
 
     var nowDate = new Date();
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
-        var validity = this.validity.getDate();
+        var validity = this.startTime.setDate(this.startTime.getDate() + index);
         break;
       case 'hours':
         var now = nowDate.getHours();
-        validity = this.validity.getHours();
+        validity = this.startTime.getHours(this.startTime.getHours() + index);
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
-        validity = this.validity.getMinutes();
+        validity = this.startTime.setMinutes(this.startTime.getMinutes() + index);
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validity = this.validity.getSeconds();
+        validity = this.startTime.setSeconds(this.startTime.getSeconds() + index);
         break;
     }
 
     if(now == validity){
       this.state = 'on'
-    } else if(nowDate < this.validity) {
+    } else if(nowDate < this.startTime) {
       this.state = 'before';
     } else {
       this.state = 'after';
@@ -121,8 +126,9 @@ class ledGroup {
   }
 
   getLedColor(led){
-    if (this.leds.find(element => element == led)!=undefined){
-      var state = this.getState();
+    var index = this.leds.findIndex(element => element == led);
+    if (index!=undefined){
+      var state = this.getState(index);
       switch(state){
         case 'on':
           return this.colorOn;
