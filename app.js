@@ -57,6 +57,7 @@ class Main {
             ledColor = ledGroup.getLedColor(this.offset);
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
+              ledColor = undefined;
             }
         });
 
