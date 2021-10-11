@@ -132,7 +132,7 @@ class ledGroup {
     } else if(nowDate > validityDate){
       state = 'after';
     }
-    return this.state;
+    return state;
   }
 
   getLedColor(led){
