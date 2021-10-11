@@ -39,7 +39,7 @@ class Main {
         ];
 
         this.ledGroups.forEach (ledGroup => {
-          ledGroup.leds.forEach (led = {
+          ledGroup.leds.forEach (led => {
             this.pixels[led] = ledGroup.getLedColor(led);
           });
         });
