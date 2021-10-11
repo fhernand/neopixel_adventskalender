@@ -114,6 +114,10 @@ class ledGroup {
         validity = this.startTime.setSeconds(this.startTime.getSeconds() + index);
         break;
     }
+    console.log(now);
+    console.log(validity);
+    console.log(nowDate);
+    console.log(this.startTime);
 
     if(now == validity){
       this.state = 'on'
