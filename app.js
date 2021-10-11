@@ -130,7 +130,7 @@ class ledGroup {
 
   getLedColor(led){
     var index = this.leds.findIndex(element => element == led);
-    console.log(this.name + ":" led + "->" + index);
+    console.log(this.name + ':' led + '->' + index);
     if (index!=undefined){
       var state = this.getState(index);
       switch(state){
