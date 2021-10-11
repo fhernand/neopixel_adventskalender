@@ -54,12 +54,10 @@ class Main {
 
         var ledColor = undefined;
         this.ledGroups.forEach(ledGroup => {
-          if (ledColor == undefined){
             ledColor = ledGroup.getLedColor(this.offset);
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
             }
-          }
         });
 
         // Move on to next
