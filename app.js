@@ -31,13 +31,19 @@ class Main {
 
         this.pixels = new Uint32Array(this.config.leds);
 
-        this.ledGroups = [];
         var now = new Date;
 
-        for (var i = 0; i < this.config.leds; i++){
-          var latest = this.ledGroups.push(new ledGroup([i],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"}));
-          this.pixels[i] = this.ledGroups[latest-1].getLedColor(i);
-        }
+        this.ledGroups = [
+          {new ledGroup([0,3,4,7,8,11,12,15,16,19,20,23,24,27,28,31,32,35,36,39,40,43,44,47,48],now.setSeconds( now.getSeconds() + 1), 'seconds', {"on": '0xBEFF33', 'before': '0x5A0AAB', 'after':"0xE85D13"})},
+          {new ledGroup([1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49],0, 'timeless', {"on": '0xBEFF33'})}
+        ];
+
+        this.ledGroups.forEach (ledGroup => {
+          ledGroup.leds.forEach (led = {
+            this.pixels[led] = ledGroup.getLedColor(led);
+          });
+        });
+
         ws281x.render(this.pixels);
 
     }
@@ -84,7 +90,7 @@ class ledGroup {
     if (this.state == 'after')
       return this.state;
 
-    var nowDate = new Date();      
+    var nowDate = new Date();
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
