@@ -96,22 +96,23 @@ class ledGroup {
       return this.state;
 
     var nowDate = new Date();
+    var validityTemp = new Date(this.startTime);
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
-        var validity = this.startTime.setDate(this.startTime.getDate() + index);
+        var validity = validityTemp.setDate(this.startTime.getDate() + index);
         break;
       case 'hours':
         var now = nowDate.getHours();
-        validity = this.startTime.getHours(this.startTime.getHours() + index);
+        validity = validityTemp.getHours(this.startTime.getHours() + index);
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
-        validity = this.startTime.setMinutes(this.startTime.getMinutes() + index);
+        validity = validityTemp.setMinutes(this.startTime.getMinutes() + index);
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validity = this.startTime.setSeconds(this.startTime.getSeconds() + index);
+        validity = validityTemp.setSeconds(this.startTime.getSeconds() + index);
         break;
     }
 
@@ -127,7 +128,7 @@ class ledGroup {
 
   getLedColor(led){
     var index = this.leds.findIndex(element => element == led);
-    console.log(index);
+    
     if (index!=undefined){
       var state = this.getState(index);
       switch(state){
