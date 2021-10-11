@@ -140,10 +140,13 @@ class ledGroup {
       switch(state){
         case 'on':
           result = this.colorOn;
+          break;
         case 'before':
           result = this.colorBefore;
+          break;
         case 'after':
           result = this.colorAfter;
+          break;
       }
     }
     console.log(this.name,':', led, '->',index, ':color:',result,'state:',state, 'thiscoloron', this.colorOn);
