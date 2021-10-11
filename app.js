@@ -146,7 +146,7 @@ class ledGroup {
           result = this.colorAfter;
       }
     }
-    console.log(this.name,':', led, '->',index, ':color:',result,'state:',state);
+    console.log(this.name,':', led, '->',index, ':color:',result,'state:',state, 'thiscoloron', this.colorOn);
     return result;
   }
 
