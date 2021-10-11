@@ -135,7 +135,7 @@ class ledGroup {
         var state = this.getState(index);
       }else{
         state = this.state;
-      }      
+      }
 
       switch(state){
         case 'on':
@@ -146,7 +146,7 @@ class ledGroup {
           result = this.colorAfter;
       }
     }
-    console.log(this.name,':', led, '->',index, ':color:',result);
+    console.log(this.name,':', led, '->',index, ':color:',result,'state:',this.state);
     return result;
   }
 
