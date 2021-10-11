@@ -123,6 +123,8 @@ class ledGroup {
         break;
     }
 
+                  console.log(this.name,':', now, '->', validity);
+
     if(now == validity){
       this.state = 'on'
     } else if(nowDate < validityDate) {
