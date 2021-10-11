@@ -103,7 +103,7 @@ class ledGroup {
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
-        var validity = validityTemp.setDate(this.startTime.getDate() + index*this.delta)getDate();
+        var validity = validityTemp.setDate(this.startTime.getDate() + index*this.delta).getDate();
         break;
       case 'hours':
         var now = nowDate.getHours();
