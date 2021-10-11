@@ -108,17 +108,17 @@ class ledGroup {
         break;
       case 'hours':
         var now = nowDate.getHours();
-        validityDate = validityTemp.getHours(this.startTime.getHours() + index*this.delta).getHours();
+        validityDate = validityTemp.getHours(this.startTime.getHours() + index*this.delta);
         validity = validityDate.getHours();
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
-        validityDate = validityTemp.setMinutes(this.startTime.getMinutes() + index*this.delta).getMinutes();
+        validityDate = validityTemp.setMinutes(this.startTime.getMinutes() + index*this.delta);
         validity = validityDate.getMinutes();
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validityDate = validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta).getSeconds();
+        validityDate = validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta);
         validity = validityDate.getSeconds();
         break;
     }
