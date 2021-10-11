@@ -35,7 +35,7 @@ class Main {
 
         this.ledGroups = [
           new ledGroup("days",[0,3,4,7,8,11,12,15,16,19,20,23,24,27,28,31,32,35,36,39,40,43,44,47,48],now, 1, 'seconds', {"on": "0x38761D", "before": "0x118800", "after":"0xCC0000"}),
-          new ledGroup("advent",[4,11,18],now, 7, 'seconds', {"on": "0xB6D7A8", "before": "0x8877EE", "after":"0xE69138"}),
+          new ledGroup("advent",[8,23,36],now, 7, 'seconds', {"on": "0xB6D7A8", "before": "0x8877EE", "after":"0xE69138"}),
           new ledGroup("hintergrund",[1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49],0,0, 'timeless', {"on": "0xFFE599", "before": "0x000000", "after":"0x000000"})
         ];
 
@@ -58,7 +58,6 @@ class Main {
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
 
-              console.log(ledGroup.name,':', this.offset, '->', ledColor);
               ledColor = undefined;
             }
         });
@@ -119,6 +118,8 @@ class ledGroup {
         validity = validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta);
         break;
     }
+
+                  console.log(this.name,':', now, '->', validity);
 
     if(now == validity){
       this.state = 'on'
