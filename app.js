@@ -126,11 +126,11 @@ class ledGroup {
                   console.log(this.name,':', now, '->', validity);
 
     if(now == validity){
-      this.state = 'on'
+      var state = 'on'
     } else if(nowDate < validityDate) {
-      this.state = 'before';
+      state = 'before';
     } else {
-      this.state = 'after';
+      state = 'after';
     }
     return this.state;
   }
