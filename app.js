@@ -114,10 +114,6 @@ class ledGroup {
         validity = this.startTime.setSeconds(this.startTime.getSeconds() + index);
         break;
     }
-    console.log(now);
-    console.log(validity);
-    console.log(nowDate);
-    console.log(this.startTime);
 
     if(now == validity){
       this.state = 'on'
@@ -131,6 +127,7 @@ class ledGroup {
 
   getLedColor(led){
     var index = this.leds.findIndex(element => element == led);
+    console.log(index);
     if (index!=undefined){
       var state = this.getState(index);
       switch(state){
