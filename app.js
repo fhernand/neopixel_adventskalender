@@ -103,25 +103,25 @@ class ledGroup {
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
-        var validity = validityTemp.setDate(this.startTime.getDate() + index*this.delta);
+        var validity = validityTemp.setDate(this.startTime.getDate() + index*this.delta)getDate();
         break;
       case 'hours':
         var now = nowDate.getHours();
-        validity = validityTemp.getHours(this.startTime.getHours() + index*this.delta);
+        validity = validityTemp.getHours(this.startTime.getHours() + index*this.delta).getHours();
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
-        validity = validityTemp.setMinutes(this.startTime.getMinutes() + index*this.delta);
+        validity = validityTemp.setMinutes(this.startTime.getMinutes() + index*this.delta).getMinutes();
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validity = validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta);
+        validity = validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta).getSeconds();
         break;
     }
 
                   console.log(this.name,':', now, '->', validity);
 
-    if(now == validity){
+    if(now == validity{
       this.state = 'on'
     } else if(nowDate < this.startTime) {
       this.state = 'before';
