@@ -57,9 +57,12 @@ class Main {
             ledColor = ledGroup.getLedColor(this.offset);
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
+
+              console.log(ledGroup.name,':', this.offset, '->', ledColor);
               ledColor = undefined;
             }
         });
+
 
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
@@ -149,7 +152,6 @@ class ledGroup {
           break;
       }
     }
-    console.log(this.name,':', led, '->',index, ':color:',result,'state:',state, 'thiscoloron', this.colorOn);
     return result;
   }
 
