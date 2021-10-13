@@ -1,8 +1,11 @@
-var ws281x = require('rpi-ws281x');
+const ws281x = require('rpi-ws281x');
+const jsonfile = require('jsonfile')
+const configFile = '/config.json'
 
 class Main {
 
     constructor() {
+        var config = new Config();
         // Current pixel position
         this.offset = 0;
 
@@ -15,7 +18,7 @@ class Main {
         this.config.dma = 10;
 
         // Set full brightness, a value from 0 to 255 (default 255)
-        this.config.brightness = 255;
+        this.config.brightness = config.getBrightness();
 
         // Set the GPIO number to communicate with the Neopixel strip (default 18)
         this.config.gpio = 18;
@@ -31,13 +34,14 @@ class Main {
 
         this.pixels = new Uint32Array(this.config.leds);
 
-        var now = new Date;
-
+        this.ledGroups = config.getLedGroups();
+/*
         this.ledGroups = [
           new ledGroup("days",[0,3,4,7,8,11,12,15,16,19,20,23,24,27,28,31,32,35,36,39,40,43,44,47,48],now, 1, 'seconds', {"on": "0x38761D", "before": "0x111188", "after":"0x118800"}), //on: hellrosa, before: dunkelblau, after:grüne
           new ledGroup("advent",[8,23,36],now.setSeconds(now.getSeconds() + 4), 7, 'seconds', {"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}), //on: gelb, before: blau, after: rot
           new ledGroup("hintergrund",[1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49],0,0, 'timeless', {"on": "0xfbf6e7"}) //on: warmweiß
         ];
+        */
 
         this.ledGroups.forEach (ledGroup => {
           ledGroup.leds.forEach (led => {
@@ -50,8 +54,6 @@ class Main {
     }
 
     loop() {
-
-
         var ledColor = undefined;
         this.ledGroups.forEach(ledGroup => {
             ledColor = ledGroup.getLedColor(this.offset);
@@ -61,7 +63,6 @@ class Main {
               ledColor = undefined;
             }
         });
-
 
         // Move on to next
         this.offset = (this.offset + 1) % this.config.leds;
@@ -157,8 +158,63 @@ class ledGroup {
     }
     return result;
   }
+}
 
+class Config {
+  constructor(){
+    var args = process.argv.slice(2);
+    if(args!=undefined){
+      this.configFile = args;
+    }else{
+      this.configFile = '/config.json';
+    }
+    this.config = jsonfile.readFileSync(this.configFile));
+  }
 
+  getBrightness(){
+    return this.config.brightness;
+  }
+
+  getLedGroups(){
+    var ledGroups = [];
+    this.config.forEach(configEntry => {
+      if(configEntry.startTime == "now"){
+        var startTime = new Date();
+      }else{
+        var startTime = new Date(now);
+      }
+
+      if(configEntry.offset == undefined){
+        var offset = 0;
+      } else {
+        var offset = configEntry.offset;
+      }
+
+      switch(configEntry.timeUnit) {
+        case 'date':
+          startTime = new Date(startTime.setDate(startTime.getDate() + offset));
+          break;
+        case 'hours':
+          startTime = new Date(startTime.getHours(startTime..getHours() + offset));
+          break;
+        case 'minutes':
+          startTime = new Date(startTime.setMinutes(startTime.getMinutes() + offset));
+          break;
+        case 'seconds':
+          startTime = new Date(startTime.setSeconds(startTime.getSeconds() + offset));
+          break;
+      }
+      ledGroups.push(new ledGroup(
+        configEntry.name,
+        configEntry.leds,
+        startTime,
+        configEntry.delta,
+        configEntry.timeUnit,
+        configEntry.colors
+      );
+    }
+    return ledGroups;
+  }
 }
 
 var main = new Main();
