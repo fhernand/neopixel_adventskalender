@@ -15,7 +15,7 @@ class Main {
         this.config.dma = 10;
 
         // Set full brightness, a value from 0 to 255 (default 255)
-        this.config.brightness = 100;
+        this.config.brightness = 255;
 
         // Set the GPIO number to communicate with the Neopixel strip (default 18)
         this.config.gpio = 18;
