@@ -153,9 +153,7 @@ class ledGroup {
       }
     }
     if (this.flicker == "on"){
-      console.log("before " + result);
       result = this.getFlicker(result);
-      console.log("after " + result);
     }
     return result;
   }
@@ -166,9 +164,6 @@ class ledGroup {
       rgb.r = Math.trunc(rgb.r + 5 - (10*Math.random()));
       rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
       rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
-      console.log(rgb.r);
-      console.log(rgb.g);
-      console.log(rgb.b);
       var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
       var result = "0x" + color.toString(16);
     } else {
