@@ -82,6 +82,7 @@ class ledGroup {
     this.name = name;
     this.startTime = new Date(startTime);
     console.log(this.startTime);
+    consolo.log(new Date());
     this.leds = ledArray;
     this.delta = delta;
     this.validityType = validityType;
