@@ -7,7 +7,7 @@
     "timeUnit":"seconds",
     "startTime":"now",
     "delta":1,
-    "colors":{"on": "0x38761D", "before": "0xcfe2f3", "after":"0xe1f094"},
+    "colors":{"on": "0x82f250", "before": "0xcfe2f3", "after":"0xe1f094"},
     "flicker":"off"
   },
   {
@@ -17,7 +17,7 @@
     "startTime":"now",
     "offset":4,
     "delta":7,
-    "colors":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"},
+    "colors":{"on": "0xfe9500", "before": "0x3d85c6", "after":"0xf44336"},
     "flicker":"off"
   },
   {
