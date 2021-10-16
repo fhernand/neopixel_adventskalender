@@ -162,8 +162,8 @@ class ledGroup {
     var rgb = this.hex2rgb(ledColor);
     if (rgb != false){
       rgb.r = Math.trunc(rgb.r + 5 - (10*Math.random()));
-      rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
-      rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
+      //rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
+      //rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
       var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
       var result = "0x" + color.toString(16);
     } else {
