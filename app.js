@@ -178,10 +178,12 @@ class Config {
   getLedGroups(){
     var ledGroups = [];
     this.config.ledGroups.forEach(configEntry => {
-      if(configEntry.startTime == "now"){
-        var startTime = new Date();
-      }else{
-        var startTime = new Date(now);
+      if (configEntry.timeUnit != "timeless"){
+        if(configEntry.startTime == "now"){
+          var startTime = new Date();
+        }else{
+          var startTime = new Date(configEntry.startTime);
+        }
       }
 
       if(configEntry.offset == undefined){
