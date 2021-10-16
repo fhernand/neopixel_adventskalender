@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "rpi-ws281x": "^1.0.36"
+    "rpi-ws281x": "^1.0.36",
+    "jsonfile":"^6.1.0"
   },
   "repository": {
     "type": "git",
