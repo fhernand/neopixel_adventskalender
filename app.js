@@ -78,7 +78,7 @@ class Main {
 };
 
 class ledGroup {
-  constructor(name, ledArray, startTime, delta, validityType, colors){
+  constructor(name, ledArray, startTime, delta, validityType, colors, flicker){
     this.name = name;
     this.startTime = new Date(startTime);
     this.startTime.setMilliseconds(0);
@@ -88,6 +88,7 @@ class ledGroup {
     this.colorOn = colors.on;
     this.colorBefore = colors.before;
     this.colorAfter = colors.after;
+    this.flicker = flicker;
     if (this.validityType == 'timeless'){
       this.state = 'on';
     } else {
@@ -153,8 +154,27 @@ class ledGroup {
           break;
       }
     }
+    if (this.flicker == "on"){
+      result = flicker(result);
+    }
     return result;
   }
+
+  flicker(ledColor){
+    var delta = Math.random();
+    delta = 0.5 - delta;
+    var adjustedLedColor = lightenDarkenColor(ledColor,delta);
+    return adjustedLedColor;
+  }
+
+  lightenDarkenColor(col, amt) {
+  var num = parseInt(col, 16);
+  var r = (num >> 16) + amt;
+  var b = ((num >> 8) & 0x00FF) + amt;
+  var g = (num & 0x0000FF) + amt;
+  var newColor = g | (b << 8) | (r << 16);
+  return newColor.toString(16);
+}
 }
 
 class Config {
