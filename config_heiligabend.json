@@ -2,29 +2,6 @@
   "brightness":255,
   "ledGroups":[
   {
-    "name":"days",
-    "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46],
-    "timeUnit":"seconds",
-    "startTime":"now",
-    "delta":1,
-    "colors":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"}
-  },
-  {
-    "name":"advent",
-    "leds":[9,23,38],
-    "timeUnit":"seconds",
-    "startTime":"now",
-    "offset":4,
-    "delta":7,
-    "colors":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}
-  },
-  {
-    "name":"hintergrund",
-    "leds":[0,2,4,6,8,10,12,14,16,18,20,22,24,25,27,29,31,33,35,37,39,41,43,45,47,49],
-    "timeUnit":"timeless",
-    "colors":{"on": "0xfbf6e7"}
-  },
-  {
     "name":"heiligabend",
     "leds":[48],
     "timeUnit":"seconds",
