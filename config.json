@@ -7,7 +7,7 @@
     "timeUnit":"seconds",
     "startTime":"now",
     "delta":1,
-    "color":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"}
+    "colors":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"}
   },
   {
     "name":"advent",
@@ -16,12 +16,12 @@
     "startTime":"now",
     "offset":4,
     "delta":7,
-    "color":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}
+    "colors":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}
   },
   {
     "name":"hintergrund",
     "leds":[0,2,4,6,8,10,12,14,16,18,20,22,24,25,27,29,31,33,35,37,39,41,43,45,47,49],
     "timeUnit":"timeless",
-    "color":{"on": "0xfbf6e7"}
+    "colors":{"on": "0xfbf6e7"}
   }]
 }
