@@ -161,7 +161,7 @@ class ledGroup {
   getFlicker(ledColor){
     var rgb = this.hex2rgb(ledColor);
     if (rgb != false){
-      rgb.r = Math.trunc(rgb.r + 5 - (10*Math.random()));
+      rgb.r = Math.min((rgb.r + 5 - (10*Math.random()),255);
       //rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
       //rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
       var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
