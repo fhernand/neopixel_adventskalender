@@ -123,6 +123,8 @@ class ledGroup {
         break;
     }
 
+    console.log(validity);
+    console.log(validityDate);
     if(now == validity){
       var state = 'on'
     } else if(nowDate < validityDate) {
@@ -135,7 +137,6 @@ class ledGroup {
 
   getLedColor(led){
     var index = this.leds.findIndex(element => element == led);
-    console.log(index);
     var result = undefined;
     if (index>=0){
       if (this.validityType != 'timeless'){
