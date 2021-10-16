@@ -59,7 +59,7 @@ class Main {
             ledColor = ledGroup.getLedColor(this.offset);
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
-
+              console.log(ledColor);
               ledColor = undefined;
             }
         });
@@ -191,7 +191,7 @@ class Config {
       } else {
         var offset = configEntry.offset;
       }
-      console.log(offset);
+
       switch(configEntry.timeUnit) {
         case 'date':
           startTime = new Date(startTime.setDate(startTime.getDate() + offset));
