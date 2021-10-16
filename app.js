@@ -211,7 +211,7 @@ class Config {
         configEntry.delta,
         configEntry.timeUnit,
         configEntry.colors
-      );
+      ));
     }
     return ledGroups;
   }
