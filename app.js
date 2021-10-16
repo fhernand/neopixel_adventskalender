@@ -119,9 +119,6 @@ class ledGroup {
         break;
     }
 
-    console.log("nowDate" + nowDate);
-    console.log("validityDate" + validityDate);
-
     if(nowDate == validityDate){
       var state = 'on'
     } else if(nowDate < validityDate) {
@@ -155,7 +152,9 @@ class ledGroup {
       }
     }
     if (this.flicker == "on"){
+      console.log("before " + result);
       result = flicker(result);
+      console.log("after " + result);
     }
     return result;
   }
