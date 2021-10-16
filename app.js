@@ -118,11 +118,12 @@ class ledGroup {
         validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta))
         break;
     }
-    console.log(nowDate);
-    console.log(validityDate);
+
 
     if(nowDate == validityDate){
       var state = 'on'
+      console.log(nowDate);
+      console.log(validityDate);
     } else if(nowDate < validityDate) {
       state = 'before';
     } else if(nowDate > validityDate){
