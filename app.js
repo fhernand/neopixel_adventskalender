@@ -179,7 +179,7 @@ class Config {
 
   getLedGroups(){
     var ledGroups = [];
-    this.config.forEach(configEntry => {
+    this.config.ledGroups.forEach(configEntry => {
       if(configEntry.startTime == "now"){
         var startTime = new Date();
       }else{
