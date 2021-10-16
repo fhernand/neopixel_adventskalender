@@ -7,7 +7,7 @@
     "timeUnit":"seconds",
     "startTime":"now",
     "delta":1,
-    "color":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"} //on: hellrosa, before: dunkelblau, after:grüne
+    "color":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"}
   },
   {
     "name":"advent",
@@ -16,7 +16,7 @@
     "startTime":"now",
     "offset":4,
     "delta":7,
-    "color":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}) //on: gelb, before: blau, after: rot
+    "color":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"}
   },
   {
     "hintergrund",
