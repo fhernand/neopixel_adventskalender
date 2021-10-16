@@ -229,7 +229,8 @@ class Config {
         startTime,
         configEntry.delta,
         configEntry.timeUnit,
-        configEntry.colors
+        configEntry.colors,
+        configEntry.flicker
       ));
     });
     return ledGroups;
