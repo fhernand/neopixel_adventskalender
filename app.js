@@ -142,6 +142,7 @@ class ledGroup {
         var state = this.getState(index);
       }else{
         state = this.state;
+        console.log(this.state);
       }
 
       switch(state){
