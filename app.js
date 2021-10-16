@@ -172,7 +172,7 @@ class ledGroup {
   var b = ((num >> 8) & 0x00FF) + amt;
   var g = (num & 0x0000FF) + amt;
   var newColor = g | (b << 8) | (r << 16);
-  newColor = "0x" + newColor;
+  newColor = '#' + newColor;
   return newColor.toString(16);
 }
 }

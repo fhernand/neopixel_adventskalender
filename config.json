@@ -7,7 +7,7 @@
     "timeUnit":"seconds",
     "startTime":"now",
     "delta":1,
-    "colors":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"},
+    "colors":{"on": "#38761D", "before": "#111188", "after":"#118800"},
     "flicker":"on"
   },
   {
@@ -17,14 +17,14 @@
     "startTime":"now",
     "offset":4,
     "delta":7,
-    "colors":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"},
+    "colors":{"on": "#FDEE00", "before": "#3d85c6", "after":"#f44336"},
     "flicker":"on"
   },
   {
     "name":"hintergrund",
     "leds":[0,2,4,6,8,10,12,14,16,18,20,22,24,25,27,29,31,33,35,37,39,41,43,45,47,49],
     "timeUnit":"timeless",
-    "colors":{"on": "0xfbf6e7"},
+    "colors":{"on": "#fbf6e7"},
     "flicker":"on"
   },
   {
@@ -34,7 +34,7 @@
     "startTime":"now",
     "offset":23,
     "delta":0,
-    "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"},
+    "colors":{"on": "#FF0000", "before": "#111188", "after":"#FFFF00"},
     "flicker":"on"
   }]
 }
