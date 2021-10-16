@@ -166,7 +166,7 @@ class Config {
     if(typeof args === 'string'){
       this.configFile = args;
     }else{
-      this.configFile = '/config.json';
+      this.configFile = 'config.json';
     }
     console.log(args);
     console.log(this.configFile);
