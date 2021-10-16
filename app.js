@@ -153,7 +153,7 @@ class ledGroup {
     }
     if (this.flicker == "on"){
       console.log("before " + result);
-      result = flicker(result);
+      result = this.flicker(result);
       console.log("after " + result);
     }
     return result;
@@ -162,7 +162,7 @@ class ledGroup {
   flicker(ledColor){
     var delta = Math.random();
     delta = 0.5 - delta;
-    var adjustedLedColor = lightenDarkenColor(ledColor,delta);
+    var adjustedLedColor = this.lightenDarkenColor(ledColor,delta);
     return adjustedLedColor;
   }
 
