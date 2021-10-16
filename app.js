@@ -121,7 +121,7 @@ class ledGroup {
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta));
+        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta),0);
         validity = validityDate.getSeconds();
         break;
     }
