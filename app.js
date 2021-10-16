@@ -100,25 +100,26 @@ class ledGroup {
 
     var nowDate = new Date();
     var validityTemp = new Date(this.startTime);
+    var startTime = new Date(this.startTime);
     switch(this.validityType) {
       case 'date':
         var now = nowDate.getDate();
-        var validityDate = new Date(validityTemp.setDate(this.startTime.getDate() + index*this.delta));
+        var validityDate = new Date(validityTemp.setDate(startTime.getDate() + index*this.delta));
         var validity = validityDate.getDate();
         break;
       case 'hours':
         var now = nowDate.getHours();
-        validityDate = new Date(validityTemp.getHours(this.startTime.getHours() + index*this.delta));
+        validityDate = new Date(validityTemp.getHours(startTime.getHours() + index*this.delta));
         validity = validityDate.getHours();
         break;
       case 'minutes':
         var now = nowDate.getMinutes();
-        validityDate = new Date(validityTemp.setMinutes(this.startTime.getMinutes() + index*this.delta));
+        validityDate = new Date(validityTemp.setMinutes(startTime.getMinutes() + index*this.delta));
         validity = validityDate.getMinutes();
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validityDate = new Date(validityTemp.setSeconds(this.startTime.getSeconds() + index*this.delta));
+        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta));
         validity = validityDate.getSeconds();
         break;
     }
