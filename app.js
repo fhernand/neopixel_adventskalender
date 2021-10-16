@@ -127,7 +127,7 @@ class ledGroup {
     }
 
 
-    if(now == validity){
+    if(now == validity && nowDate <= validityDate){
       var state = 'on'
     } else if(nowDate < validityDate) {
       state = 'before';
