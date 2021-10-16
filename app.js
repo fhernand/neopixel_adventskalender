@@ -160,6 +160,7 @@ class ledGroup {
   }
 
   getFlicker(ledColor){
+    var rgb = this.hex2rgb(ledColor);
     var delta = Math.random();
     delta = 0.5 - delta;
     var adjustedLedColor = this.lightenDarkenColor(ledColor,delta);
@@ -174,6 +175,19 @@ class ledGroup {
   var newColor = g | (b << 8) | (r << 16);
   newColor = '#' + newColor;
   return newColor.toString(16);
+  }
+
+  hex2rgb(hex) {
+    var validHEXInput = /^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!validHEXInput) {
+        return false;
+    }
+    var output = {
+        r: parseInt(validHEXInput[1], 16),
+        g: parseInt(validHEXInput[2], 16),
+        b: parseInt(validHEXInput[3], 16),
+    };
+    return output;
 }
 }
 
