@@ -163,7 +163,7 @@ class ledGroup {
 class Config {
   constructor(){
     var args = process.argv.slice(2);
-    if(args[0] != ''){
+    if(typeof args[0] === 'string' && args[0] != ''){
       this.configFile = args[0];
     }else{
       this.configFile = 'config.json';
