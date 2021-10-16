@@ -168,8 +168,6 @@ class Config {
     }else{
       this.configFile = 'config.json';
     }
-    console.log(args);
-    console.log(this.configFile);
     this.config = jsonfile.readFileSync(this.configFile);
   }
 
@@ -193,7 +191,7 @@ class Config {
       } else {
         var offset = configEntry.offset;
       }
-
+      console.log(offset);
       switch(configEntry.timeUnit) {
         case 'date':
           startTime = new Date(startTime.setDate(startTime.getDate() + offset));
