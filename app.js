@@ -170,7 +170,7 @@ class ledGroup {
       console.log(rgb.g);
       console.log(rgb.b);
       var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
-      var result = color.toString(16);
+      var result = "0x" + color.toString(16);
     } else {
       result = ledColor;
     }
