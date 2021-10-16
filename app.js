@@ -128,10 +128,8 @@ class ledGroup {
 
     console.log("nowDate" + nowDate);
     console.log("validityDate" + validityDate);
-    console.log("now" + now);
-    console.log("validity" + validity);
 
-    if(now == validity && nowDate <= validityDate){
+    if(nowDate == validityDate){
       var state = 'on'
     } else if(nowDate < validityDate) {
       state = 'before';
