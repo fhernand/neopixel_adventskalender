@@ -81,6 +81,7 @@ class ledGroup {
   constructor(name, ledArray, startTime, delta, validityType, colors){
     this.name = name;
     this.startTime = new Date(startTime);
+    console.log(this.startTime);
     this.leds = ledArray;
     this.delta = delta;
     this.validityType = validityType;
