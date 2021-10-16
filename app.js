@@ -122,8 +122,6 @@ class ledGroup {
 
     if(nowDate.getTime() == validityDate.getTime()){
       var state = 'on'
-      console.log(nowDate);
-      console.log(validityDate);
     } else if(nowDate < validityDate) {
       state = 'before';
     } else if(nowDate > validityDate){
@@ -164,20 +162,10 @@ class ledGroup {
 
   getFlicker(ledColor){
     var rgb = this.hex2rgb(ledColor);
-    var delta = Math.random();
-    delta = 0.5 - delta;
-    var adjustedLedColor = this.lightenDarkenColor(ledColor,delta);
-    return adjustedLedColor;
-  }
-
-  lightenDarkenColor(col, amt) {
-  var num = parseInt(col, 16);
-  var r = (num >> 16) + amt;
-  var b = ((num >> 8) & 0x00FF) + amt;
-  var g = (num & 0x0000FF) + amt;
-  var newColor = g | (b << 8) | (r << 16);
-  newColor = '#' + newColor;
-  return newColor.toString(16);
+    ledColor.r = ledColor.r + 0.5 - Math.random();
+    ledColor.g = ledColor.g + 0.5 - Math.random();
+    ledColor.b = ledColor.b + 0.5 - Math.random();
+    return (ledColor.r << 16) | (ledColor.g << 8)| ledColor.b;
   }
 
   hex2rgb(hex) {
