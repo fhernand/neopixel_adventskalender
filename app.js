@@ -162,10 +162,15 @@ class ledGroup {
 
   getFlicker(ledColor){
     var rgb = this.hex2rgb(ledColor);
-    rgb.r = rgb.r + 0.5 - Math.random();
-    rgb.g = rgb.g + 0.5 - Math.random();
-    rgb.b = rgb.b + 0.5 - Math.random();
-    return (rgb.r << 16) | (rgb.g << 8)| rgb.b;
+    if (rgb != false){
+      rgb.r = rgb.r + 0.5 - Math.random();
+      rgb.g = rgb.g + 0.5 - Math.random();
+      rgb.b = rgb.b + 0.5 - Math.random();
+      var result = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
+    } else {
+      result = ledColor;
+    }
+    return result;
   }
 
   hex2rgb(hex) {

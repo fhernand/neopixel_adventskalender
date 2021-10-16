@@ -8,6 +8,7 @@
     "startTime":"now",
     "offset":24,
     "delta":0,
-    "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"}
+    "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"},
+    "flicker":"on"
   }]
 }
