@@ -120,7 +120,7 @@ class ledGroup {
     }
 
 
-    if(nowDate == validityDate){
+    if(nowDate.getTime() == validityDate.getTime()){
       var state = 'on'
       console.log(nowDate);
       console.log(validityDate);
