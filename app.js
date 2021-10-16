@@ -57,7 +57,6 @@ class Main {
         var ledColor = undefined;
         this.ledGroups.forEach(ledGroup => {
             ledColor = ledGroup.getLedColor(this.offset);
-            console.log(ledColor);
             if (ledColor != undefined){
               this.pixels[this.offset] = ledColor;
               ledColor = undefined;
@@ -136,6 +135,7 @@ class ledGroup {
 
   getLedColor(led){
     var index = this.leds.findIndex(element => element == led);
+    console.log(index);
     var result = undefined;
     if (index>=0){
       if (this.validityType != 'timeless'){
