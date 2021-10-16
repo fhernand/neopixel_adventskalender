@@ -81,6 +81,7 @@ class ledGroup {
   constructor(name, ledArray, startTime, delta, validityType, colors){
     this.name = name;
     this.startTime = new Date(startTime);
+    this.startTime.setMilliseconds(0);
     this.leds = ledArray;
     this.delta = delta;
     this.validityType = validityType;
@@ -99,6 +100,7 @@ class ledGroup {
       return this.state;
 
     var nowDate = new Date();
+    nowDate.setMilliseconds(0);
     var validityTemp = new Date(this.startTime);
     var startTime = new Date(this.startTime);
     switch(this.validityType) {
@@ -119,13 +121,15 @@ class ledGroup {
         break;
       case 'seconds':
         var now = nowDate.getSeconds();
-        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta),0);
+        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta))
         validity = validityDate.getSeconds();
-        console.log(validityDate);
-        console.log(validity);
         break;
     }
 
+    console.log("nowDate" + nowDate);
+    console.log("validityDate" + validityDate);
+    console.log("now" + now);
+    console.log("validity" + validity);
 
     if(now == validity && nowDate <= validityDate){
       var state = 'on'
