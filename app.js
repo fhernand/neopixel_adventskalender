@@ -168,7 +168,7 @@ class Config {
     }else{
       this.configFile = '/config.json';
     }
-    this.config = jsonfile.readFileSync(this.configFile));
+    this.config = jsonfile.readFileSync(this.configFile);
   }
 
   getBrightness(){
