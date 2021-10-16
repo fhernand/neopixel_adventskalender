@@ -24,7 +24,7 @@
     "name":"hintergrund",
     "leds":[0,2,4,6,8,10,12,14,16,18,20,22,24,25,27,29,31,33,35,37,39,41,43,45,47,49],
     "timeUnit":"timeless",
-    "colors":{"on": "0xfdc95e"},
+    "colors":{"on": "0xFFA048"},
     "flicker":"off"
   },
   {
