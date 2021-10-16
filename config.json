@@ -7,7 +7,7 @@
     "timeUnit":"seconds",
     "startTime":"now",
     "delta":1,
-    "colors":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"},
+    "colors":{"on": "0x38761D", "before": "0xcfe2f3", "after":"0xe1f094"},
     "flicker":"off"
   },
   {
