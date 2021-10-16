@@ -204,6 +204,7 @@ class Config {
           startTime = new Date(startTime.setSeconds(startTime.getSeconds() + offset));
           break;
       }
+
       ledGroups.push(new ledGroup(
         configEntry.name,
         configEntry.leds,
@@ -212,7 +213,7 @@ class Config {
         configEntry.timeUnit,
         configEntry.colors
       ));
-    }
+    });
     return ledGroups;
   }
 }
