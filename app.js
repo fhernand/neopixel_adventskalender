@@ -168,8 +168,6 @@ class Config {
     }else{
       this.configFile = 'config.json';
     }
-    console.log(args);
-    console.log(this.configFile);
     this.config = jsonfile.readFileSync(this.configFile);
   }
 
