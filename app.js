@@ -1,6 +1,6 @@
 const ws281x = require('rpi-ws281x');
 const jsonfile = require('jsonfile')
-const configFile = '/home/pi/neopixel_adventskalender/config.json'
+const configFile = 'config.json'
 
 class Main {
 
