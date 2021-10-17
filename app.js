@@ -61,6 +61,7 @@ class Main {
               this.pixels[this.offset] = ledColor;
               ledColor = undefined;
             }
+            this.pixels[this.offset] = ledGroup.getFlicker(this.pixels[this.offset]);
         });
 
         // Move on to next
@@ -152,21 +153,22 @@ class ledGroup {
           break;
       }
     }
-    if (this.flicker == "on"){
-      result = this.getFlicker(result);
-    }
     return result;
   }
 
   getFlicker(ledColor){
-    var rgb = this.hex2rgb(ledColor);
-    if (rgb != false){
-      rgb.r = Math.min((rgb.r + 5 - (10*Math.random())),255);
-      rgb.g = Math.min((rgb.g + 5 - (10*Math.random())),255);
-      //rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
-      //rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
-      var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
-      var result = "0x" + color.toString(16);
+    if (this.flicker == "on"){
+      var rgb = this.hex2rgb(ledColor);
+      if (rgb != false){
+        rgb.r = Math.min((rgb.r + 5 - (10*Math.random())),255);
+        rgb.g = Math.min((rgb.g + 5 - (10*Math.random())),255);
+        //rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
+        //rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
+        var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
+        var result = "0x" + color.toString(16);
+      } else {
+        result = ledColor;
+      }
     } else {
       result = ledColor;
     }
