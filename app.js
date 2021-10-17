@@ -61,7 +61,8 @@ class Main {
               this.pixels[this.offset] = ledColor;
               ledColor = undefined;
             }
-            this.pixels[this.offset] = ledGroup.getFlicker(this.pixels[this.offset]);
+            if (ledGroup.isValidLed())
+              this.pixels[this.offset] = ledGroup.getFlicker(this.pixels[this.offset]);
         });
 
         // Move on to next
@@ -131,8 +132,19 @@ class ledGroup {
     return state;
   }
 
+  isValidLed(led){
+    if (this.getLedIndex(led) >= 0){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getLedIndex(led){
+    return this.leds.findIndex(element => element == led)
+  }
   getLedColor(led){
-    var index = this.leds.findIndex(element => element == led);
+    var index = this.getLedIndex(led);
     var result = undefined;
     if (index>=0){
       if (this.validityType != 'timeless'){
