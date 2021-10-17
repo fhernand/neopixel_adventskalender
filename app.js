@@ -7,7 +7,7 @@ class Main {
     constructor() {
         var config = new Config();
         // Current pixel position
-        this.offset = 0;
+        this.pixel = 0;
 
         this.config = {};
 
@@ -56,20 +56,20 @@ class Main {
     loop() {
         var ledColor = undefined;
         this.ledGroups.forEach(ledGroup => {
-            ledColor = ledGroup.getLedColor(this.offset);
+            ledColor = ledGroup.getLedColor(this.pixel);
             if (ledColor != undefined){
-              this.pixels[this.offset] = ledColor;
+              this.pixels[this.pixel] = ledColor;
               ledColor = undefined;
             }
-            if (ledGroup.isValidLed()){
-              console.log("before " + this.pixels[this.offset]);
-              this.pixels[this.offset] = ledGroup.getFlicker(this.pixels[this.offset]);
-              console.log("after " + this.pixels[this.offset]);
+            if (ledGroup.isValidLed(this.pixel)){
+              console.log("before " + this.pixels[this.pixel]);
+              this.pixels[this.pixel] = ledGroup.getFlicker(this.pixels[this.pixel]);
+              console.log("after " + this.pixels[this.pixel]);
             }
         });
 
         // Move on to next
-        this.offset = (this.offset + 1) % this.config.leds;
+        this.pixel = (this.pixel + 1) % this.config.leds;
 
         // Render to strip
         ws281x.render(this.pixels);
