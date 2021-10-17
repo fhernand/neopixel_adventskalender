@@ -71,8 +71,7 @@ class Main {
         this.pixel = (this.pixel + 1) % this.config.leds;
 
         // Render to strip
-        console.log(this.pixel);
-        if(this.pixel == this.config.leds)
+        if(this.pixel == 0)
           ws281x.render(this.pixels);
     }
 
