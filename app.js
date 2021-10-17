@@ -219,13 +219,16 @@ class Config {
 
   getLedGroups(){
     var ledGroups = [];
+
+    if(this.config.startTime == "now"){
+      var startTime = new Date();
+    }else{
+      var startTime = new Date(this.config.startTime);
+    }
+
     this.config.ledGroups.forEach(configEntry => {
-      if (configEntry.timeUnit != "timeless"){
-        if(configEntry.startTime == "now"){
-          var startTime = new Date();
-        }else{
-          var startTime = new Date(configEntry.startTime);
-        }
+      if (configEntry.timeUnit == "timeless"){
+        startTime = 0;
       }
 
       if(configEntry.offset == undefined){
