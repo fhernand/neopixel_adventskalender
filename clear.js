@@ -3,7 +3,6 @@ const ws281x = require('rpi-ws281x');
 class Main {
 
     constructor() {
-        var config = new Config();
         // Current pixel position
         this.pixel = 0;
 
