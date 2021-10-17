@@ -123,9 +123,16 @@ class ledGroup {
         validityDate.setHours(0,0,0,0);
         break;
       case 'hours':
-        validityDate = new Date(validityTemp.setHours(startTime.getHours() + index*this.delta));
+        var hours = startTime.getHours();
+        var hoursplusdelta = hours + index*this.delta;
+        console.log(validityTemp);
+        validityDate = validityTemp.setHours(newhoursdate);
+        console.log(hours);
+        console.log(hoursplusdelta);
+        console.log(validityDate);
+        //validityDate = new Date(validityTemp.setHours(startTime.getHours() + index*this.delta));
         nowDate.setMinutes(0,0,0);
-        //validityDate.setMinutes(0,0,0);
+        validityDate.setMinutes(0,0,0);
         break;
       case 'minutes':
         validityDate = new Date(validityTemp.setMinutes(startTime.getMinutes() + index*this.delta));
