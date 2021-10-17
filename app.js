@@ -159,6 +159,7 @@ class ledGroup {
   getLedIndex(led){
     return this.leds.findIndex(element => element == led)
   }
+
   getLedColor(led){
     var index = this.getLedIndex(led);
     var result = undefined;
@@ -180,14 +181,14 @@ class ledGroup {
         case 'before':
           if (this.randomBefore == "on"){
             result = this.getRandomColor();
-          } else if (this.randomOn != "off"){
+          } else if (this.randomBefore != "off"){
             result = this.colorBefore;
           }
           break;
         case 'after':
-          if (this.randomOn == "on"){
+          if (this.randomAfter == "on"){
             result = this.getRandomColor();
-          } else if (this.randomOn != "off"){
+          } else if (this.randomAfter != "off"){
             result = this.colorAfter;
           }
           break;
