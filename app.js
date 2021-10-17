@@ -127,7 +127,7 @@ class ledGroup {
         var hours = startTime.getHours();
         var hoursplusdelta = hours + index*this.delta;
         console.log(validityTemp);
-        validityDate = validityTemp.setHours(hoursplusdelta);
+        validityDate = new Date(validityTemp.setHours(hoursplusdelta));
         console.log(hours);
         console.log(hoursplusdelta);
         console.log(validityDate);
@@ -267,8 +267,6 @@ class Config {
 
   getLedGroups(){
     var ledGroups = [];
-    console.log(new Date());
-    console.log(this.config.startTime);
     this.config.ledGroups.forEach(configEntry => {
       if (configEntry.timeUnit != "timeless"){
         if(this.config.startTime == "now"){
