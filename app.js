@@ -83,7 +83,6 @@ class ledGroup {
   constructor(name, ledArray, startTime, delta, validityType, colors, random, flicker){
     this.name = name;
     this.startTime = new Date(startTime);
-    this.startTime.setMilliseconds(0);
     this.leds = ledArray;
     this.delta = delta;
     this.validityType = validityType;
@@ -113,43 +112,32 @@ class ledGroup {
       return this.state;
 
     var nowDate = new Date();
-    nowDate.setMilliseconds(0);
-    var validityTemp = new Date(this.startTime);
-    console.log(this.startTime);
     var startTime = new Date(this.startTime);
     switch(this.validityType) {
       case 'date':
-        var validityDate = new Date(validityTemp.setDate(startTime.getDate() + index*this.delta));
+        var validityDate = new Date(startTime.setDate(startTime.getDate() + index*this.delta));
         nowDate.setHours(0,0,0,0);
         validityDate.setHours(0,0,0,0);
         break;
       case 'hours':
-        var hours = startTime.getHours();
-        var hoursplusdelta = hours + index*this.delta;
-        console.log(validityTemp);
-        validityDate = new Date(validityTemp.setHours(hoursplusdelta));
-        console.log(hours);
-        console.log(hoursplusdelta);
-        console.log(validityDate);
-        //validityDate = new Date(validityTemp.setHours(startTime.getHours() + index*this.delta));
+        validityDate = new Date(startTime.setHours(startTime.getHours() + index*this.delta));
         nowDate.setMinutes(0,0,0);
         validityDate.setMinutes(0,0,0);
         break;
       case 'minutes':
-        validityDate = new Date(validityTemp.setMinutes(startTime.getMinutes() + index*this.delta));
+        validityDate = new Date(startTime.setMinutes(startTime.getMinutes() + index*this.delta));
         nowDate.setSeconds(0,0);
         validityDate.setSeconds(0,0);
         break;
       case 'seconds':
-        validityDate = new Date(validityTemp.setSeconds(startTime.getSeconds() + index*this.delta))
+        validityDate = new Date(startTime.setSeconds(startTime.getSeconds() + index*this.delta));
+        nowDate.setMilliseconds(0);
+        validityDate.setMilliseconds(0);
         break;
     }
 
     var nowDateTime = nowDate.getTime();
     var validityDateTime = validityDate.getTime();
-    console.log("now: " + nowDateTime);
-    console.log("validity: " + validityDateTime);
-
 
     if(nowDateTime == validityDateTime){
       var state = 'on'
