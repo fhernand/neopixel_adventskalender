@@ -5,7 +5,7 @@
   {
     "name":"days",
     "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46,48],
-    "timeUnit":"minutes",
+    "timeUnit":"hours",
     "delta":1,
     "colors":{"on": "0x135b91", "before": "0xcfe2f3", "after":"0xe1f094"},
     "flicker":"on"
@@ -13,7 +13,7 @@
   {
     "name":"advent",
     "leds":[9,23,38],
-    "timeUnit":"minutes",
+    "timeUnit":"hours",
     "offset":4,
     "delta":7,
     "colors":{"on": "0xff9327", "before": "0x3d85c6", "after":"0xfe9500"},
@@ -29,7 +29,7 @@
   {
     "name":"heiligabend",
     "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46,48],
-    "timeUnit":"minutes",
+    "timeUnit":"hours",
     "offset":23,
     "delta":0,
     "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"},
@@ -39,7 +39,7 @@
   {
     "name":"nikolaus",
     "leds":[11],
-    "timeUnit":"minutes",
+    "timeUnit":"hours",
     "offset":5,
     "delta":0,
     "colors":{"on": "0xcb0000", "before": "0x94dcdd", "after": "0x9a0000"},
