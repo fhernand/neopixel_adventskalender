@@ -287,7 +287,7 @@ class Config {
           startTime = new Date(startTime.setDate(startTime.getDate() + offset));
           break;
         case 'hours':
-          startTime = new Date(startTime.getHours(startTime.getHours() + offset));
+          startTime = new Date(startTime.setHours(startTime.getHours() + offset));
           break;
         case 'minutes':
           startTime = new Date(startTime.setMinutes(startTime.getMinutes() + offset));
