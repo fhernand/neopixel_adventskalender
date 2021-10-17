@@ -58,13 +58,11 @@ class Main {
         this.ledGroups.forEach(ledGroup => {
             ledColor = ledGroup.getLedColor(this.pixel);
             if (ledColor != undefined){
+              console.log("before " + ledColor);
+              ledColor = ledGroup.getFlicker(ledColor);
+              console.log("after " + ledColor);
               this.pixels[this.pixel] = ledColor;
               ledColor = undefined;
-            }
-            if (ledGroup.isValidLed(this.pixel)){
-              console.log("before " + this.pixels[this.pixel]);
-              this.pixels[this.pixel] = ledGroup.getFlicker(this.pixels[this.pixel]);
-              console.log("after " + this.pixels[this.pixel]);
             }
         });
 
