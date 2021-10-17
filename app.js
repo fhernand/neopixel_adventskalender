@@ -137,12 +137,17 @@ class ledGroup {
         break;
     }
 
+    var nowDateTime = nowDate.getTime();
+    var validityDateTime = validityDate.getTime();
+    console.log("now: " + nowDateTime);
+    console.log("validity: " + validityDateTime);
 
-    if(nowDate.getTime() == validityDate.getTime()){
+
+    if(nowDateTime == validityDateTime){
       var state = 'on'
-    } else if(nowDate.getTime() < validityDate.getTime()) {
+    } else if(nowDateTime < validityDateTime) {
       state = 'before';
-    } else if(nowDate.getTime() > validityDate.getTime()){
+    } else if(nowDateTime > validityDateTime){
       state = 'after';
     }
     return state;
