@@ -221,7 +221,7 @@ class Config {
     var ledGroups = [];
 
     this.config.ledGroups.forEach(configEntry => {
-      if (configEntry.timeUnit == "timeless"){
+      if (configEntry.timeUnit != "timeless"){
         if(this.config.startTime == "now"){
           var startTime = new Date();
         }else{
