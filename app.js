@@ -209,7 +209,6 @@ class Config {
     }else{
       this.configFile = configFile;
     }
-    console.log(this.configFile);
     this.config = jsonfile.readFileSync(this.configFile);
   }
 
@@ -219,7 +218,8 @@ class Config {
 
   getLedGroups(){
     var ledGroups = [];
-
+    console.log(new Date());
+    console.log(this.config.startTime);
     this.config.ledGroups.forEach(configEntry => {
       if (configEntry.timeUnit != "timeless"){
         if(this.config.startTime == "now"){
