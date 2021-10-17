@@ -207,7 +207,7 @@ class Config {
     if(typeof args[0] === 'string' && args[0] != ''){
       this.configFile = args[0];
     }else{
-      this.configFile = 'config.json';
+      this.configFile = configFile;
     }
     this.config = jsonfile.readFileSync(this.configFile);
   }
