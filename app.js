@@ -80,7 +80,7 @@ class Main {
 };
 
 class ledGroup {
-  constructor(name, ledArray, startTime, delta, validityType, colors, flicker){
+  constructor(name, ledArray, startTime, delta, validityType, colors, random, flicker){
     this.name = name;
     this.startTime = new Date(startTime);
     this.startTime.setMilliseconds(0);
@@ -90,6 +90,9 @@ class ledGroup {
     this.colorOn = colors.on;
     this.colorBefore = colors.before;
     this.colorAfter = colors.after;
+    this.randomOn = random.on,
+    this.randomBefore = random.before,
+    this.randomAfter = random.after,
     this.flicker = flicker;
     if (this.validityType == 'timeless'){
       this.state = 'on';
@@ -161,25 +164,44 @@ class ledGroup {
 
       switch(state){
         case 'on':
-          result = this.colorOn;
+          if (this.randomOn == "on"){
+            result = getRandomColor();
+          } else if this.randomOn != "off"){
+            result = this.colorOn;
+          }
           break;
         case 'before':
-          result = this.colorBefore;
+          if (this.randomBefore == "on"){
+            result = getRandomColor();
+          } else if this.randomOn != "off"){
+            result = this.colorBefore;
+          }
           break;
         case 'after':
-          result = this.colorAfter;
+          if (this.randomOn == "on"){
+            result = getRandomColor();
+          } else if this.randomOn != "off"){
+            result = this.colorAfter;
+          }
           break;
       }
     }
     return result;
   }
-
+  getRandomColor(){
+    var letters = '0123456789ABCDEF';
+    var color = '0x';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
   getFlicker(ledColor){
     if (this.flicker == "on"){
       var rgb = this.hex2rgb(ledColor);
       if (rgb != false){
-        rgb.r = Math.min((rgb.r + 20 - (40*Math.random())),255);
-        rgb.g = Math.min((rgb.g + 20 - (40*Math.random())),255);
+        rgb.r = Math.min((rgb.r + 10 - (20*Math.random())),255);
+        rgb.g = Math.min((rgb.g + 10 - (20*Math.random())),255);
         //rgb.g = Math.trunc(rgb.g + 5 - (10*Math.random()));
         //rgb.b = Math.trunc(rgb.b + 5 - (10*Math.random()));
         var color = (rgb.r << 16) | (rgb.g << 8)| rgb.b;
@@ -263,6 +285,7 @@ class Config {
         configEntry.delta,
         configEntry.timeUnit,
         configEntry.colors,
+        configEntry.random,
         configEntry.flicker
       ));
     });

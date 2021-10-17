@@ -1,22 +1,22 @@
 {
   "brightness":255,
-  "startTime":"2021-10-16T16:41:00.000Z",
+  "startTime":"now",
   "ledGroups":[
   {
     "name":"days",
     "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46],
-    "timeUnit":"minutes",
+    "timeUnit":"seconds",
     "delta":1,
-    "colors":{"on": "0x82f250", "before": "0xcfe2f3", "after":"0xe1f094"},
+    "colors":{"on": "0x135b91", "before": "0xcfe2f3", "after":"0xe1f094"},
     "flicker":"on"
   },
   {
     "name":"advent",
     "leds":[9,23,38],
-    "timeUnit":"minutes",
+    "timeUnit":"seconds",
     "offset":4,
     "delta":7,
-    "colors":{"on": "0xfe9500", "before": "0x3d85c6", "after":"0xf44336"},
+    "colors":{"on": "0xff9327", "before": "0x3d85c6", "after":"0xfe9500"},
     "flicker":"on"
   },
   {
@@ -28,11 +28,22 @@
   },
   {
     "name":"heiligabend",
-    "leds":[48],
-    "timeUnit":"minutes",
+    "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46,48],
+    "timeUnit":"seconds",
     "offset":23,
     "delta":0,
     "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"},
+    "random":{"on":"on","before":"off", "after":"on"},
     "flicker":"on"
-  }]
+  },
+  {
+    "name":"nikolaus",
+    "leds":[11],
+    "timeUnit":"seconds",
+    "offset":5,
+    "delta":0,
+    "colors":{"on": "0xc80000", "before": "0x94dcdd", "after": "0xf16f57"},
+    "flicker":"on"
+  }
+]
 }
