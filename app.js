@@ -209,6 +209,7 @@ class Config {
     }else{
       this.configFile = configFile;
     }
+    console.log(this.configFile);
     this.config = jsonfile.readFileSync(this.configFile);
   }
 
