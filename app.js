@@ -61,8 +61,11 @@ class Main {
               this.pixels[this.offset] = ledColor;
               ledColor = undefined;
             }
-            if (ledGroup.isValidLed())
+            if (ledGroup.isValidLed()){
+              console.log("before " + this.pixels[this.offset]);
               this.pixels[this.offset] = ledGroup.getFlicker(this.pixels[this.offset]);
+              console.log("after " + this.pixels[this.offset]);
+            }
         });
 
         // Move on to next
