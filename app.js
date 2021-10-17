@@ -166,21 +166,21 @@ class ledGroup {
         case 'on':
           if (this.randomOn == "on"){
             result = getRandomColor();
-          } else if this.randomOn != "off"){
+          } else if (this.randomOn != "off"){
             result = this.colorOn;
           }
           break;
         case 'before':
           if (this.randomBefore == "on"){
             result = getRandomColor();
-          } else if this.randomOn != "off"){
+          } else if (this.randomOn != "off"){
             result = this.colorBefore;
           }
           break;
         case 'after':
           if (this.randomOn == "on"){
             result = getRandomColor();
-          } else if this.randomOn != "off"){
+          } else if (this.randomOn != "off"){
             result = this.colorAfter;
           }
           break;
