@@ -125,7 +125,7 @@ class ledGroup {
       case 'hours':
         validityDate = new Date(validityTemp.setHours(startTime.getHours() + index*this.delta));
         nowDate.setMinutes(0,0,0);
-        validityDate.setMinutes(0,0,0);
+        //validityDate.setMinutes(0,0,0);
         break;
       case 'minutes':
         validityDate = new Date(validityTemp.setMinutes(startTime.getMinutes() + index*this.delta));
