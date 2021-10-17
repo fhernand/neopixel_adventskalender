@@ -42,7 +42,7 @@
     "timeUnit":"seconds",
     "offset":5,
     "delta":0,
-    "colors":{"on": "0xc80000", "before": "0x94dcdd", "after": "0xf16f57"},
+    "colors":{"on": "0xcb0000", "before": "0x94dcdd", "after": "0xc80000"},
     "flicker":"on"
   }
 ]
