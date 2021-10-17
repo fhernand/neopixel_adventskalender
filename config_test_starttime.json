@@ -1,37 +1,35 @@
 {
   "brightness":255,
+  "startTime":"2021-10-16T16:41:00.000Z",
   "ledGroups":[
   {
     "name":"days",
     "leds":[1,3,5,7,9,11,13,15,17,19,21,23,26,28,30,32,34,36,38,40,42,44,46],
     "timeUnit":"minutes",
-    "startTime":"2021-10-16T16:40:00.000Z",
     "delta":1,
-    "colors":{"on": "0x38761D", "before": "0x111188", "after":"0x118800"},
+    "colors":{"on": "0x82f250", "before": "0xcfe2f3", "after":"0xe1f094"},
     "flicker":"on"
   },
   {
     "name":"advent",
     "leds":[9,23,38],
     "timeUnit":"minutes",
-    "startTime":"2021-10-16T16:40:00.000Z",
     "offset":4,
     "delta":7,
-    "colors":{"on": "0xFDEE00", "before": "0x3d85c6", "after":"0xf44336"},
+    "colors":{"on": "0xfe9500", "before": "0x3d85c6", "after":"0xf44336"},
     "flicker":"on"
   },
   {
     "name":"hintergrund",
     "leds":[0,2,4,6,8,10,12,14,16,18,20,22,24,25,27,29,31,33,35,37,39,41,43,45,47,49],
     "timeUnit":"timeless",
-    "colors":{"on": "0xfbf6e7"},
+    "colors":{"on": "0xFFA048"},
     "flicker":"on"
   },
   {
     "name":"heiligabend",
     "leds":[48],
     "timeUnit":"minutes",
-    "startTime":"2021-10-16T16:40:00.000Z",
     "offset":23,
     "delta":0,
     "colors":{"on": "0xFF0000", "before": "0x111188", "after":"0xFFFF00"},
