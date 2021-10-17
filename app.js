@@ -168,6 +168,7 @@ class ledGroup {
           break;
       }
     }
+    console.log(result);
     return result;
   }
 
@@ -193,8 +194,7 @@ class ledGroup {
   hex2rgb(hex) {
     var validHEXInput = /^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     if (!validHEXInput) {
-      console.log("kein HEX");
-        return false;
+      return false;
     }
     var output = {
         r: parseInt(validHEXInput[1], 16),
