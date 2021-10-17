@@ -90,9 +90,16 @@ class ledGroup {
     this.colorOn = colors.on;
     this.colorBefore = colors.before;
     this.colorAfter = colors.after;
-    this.randomOn = random.on,
-    this.randomBefore = random.before,
-    this.randomAfter = random.after,
+    if (random == undefined)
+    {
+      this.randomOn = undefined;
+      this.randomBefore = undefined;
+      this.randomAfter = undefined;
+    } else {
+      this.randomOn = random.on;
+      this.randomBefore = random.before;
+      this.randomAfter = random.after;
+    }
     this.flicker = flicker;
     if (this.validityType == 'timeless'){
       this.state = 'on';
