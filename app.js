@@ -107,7 +107,7 @@ class ledGroup {
     var nowDate = new Date();
     var startTime = new Date(this.startTime);
     switch(this.validityType) {
-      case 'date':
+      case 'days':
         var validityDate = new Date(startTime.setDate(startTime.getDate() + index*this.delta));
         nowDate.setHours(0,0,0,0);
         validityDate.setHours(0,0,0,0);
