@@ -264,7 +264,7 @@ class Config {
       }
 
       switch(configEntry.timeUnit) {
-        case 'date':
+        case 'days':
           startTime = new Date(startTime.setDate(startTime.getDate() + offset));
           break;
         case 'hours':
